@@ -1,0 +1,42 @@
+
+.header {
+    height: 150px;
+}
+
+.headercontainer {
+    height: 100%;
+    width: 20%;
+}
+
+.headerimage {
+    max-height: 100%;
+    max-width: 100%;
+    
+}
+
+#bad {
+    background-image: url("../images/angry_pepe.jpg");
+    background-size: 100px 80px;
+    background-repeat: repeat;
+    font-family: "Comic Sans";
+}
+
+.badtitlediv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:18em;
+    margin-top: -9em;
+    margin-left: -15em;
+}
+
+#badcontent {
+    width:120px
+    margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
