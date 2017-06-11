@@ -18,8 +18,15 @@ and open the template in the editor.
     </head>
     <body>
         <div class="header">
-            <div class="headercontainer">
-                <img class="headerimage" src="images/frog.gif" alt="frogmeme"/>
+            <div class="headercontainerleft">
+                <div id="headerimageleft">
+                    <img  class="headerimage" src="images/frog.gif" alt="frogmeme"/>
+                </div>
+            </div>
+            <div class="headercontainerright">
+                <div id="headerimageright">
+                    <img class="headerimage" src="images/frog.gif" alt="frogmeme"/>
+                </div>
             </div>
         </div>
     </body>

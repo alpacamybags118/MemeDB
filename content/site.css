@@ -3,15 +3,29 @@
     height: 150px;
 }
 
-.headercontainer {
+.headercontainerleft {
     height: 100%;
     width: 20%;
+    float:left;
+    display:inline-block
+}
+
+.headercontainerright {
+    height: 100%;
+    width: 20%;
+    float:right;
+    display:inline-block;
 }
 
 .headerimage {
     max-height: 100%;
     max-width: 100%;
     
+}
+
+#headerimageleft {
+    display:inline-block;
+    -webkit-transform:scale(-1,1);
 }
 
 #bad {
