@@ -18,7 +18,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="header">
-            <h2>MEMEDBB</h2>
+            <h2>MEMEDBB please work</h2>
             <div class="headercontainerleft">
                 <div id="headerimageleft">
                     <img  class="headerimage" src="images/frog.gif" alt="frogmeme"/>
