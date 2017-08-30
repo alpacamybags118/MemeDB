@@ -1,12 +1,14 @@
 
 .header {
     height: 150px;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 160px;
 }
 
 .headercontainerleft {
     height: 100%;
     width: 20%;
-    float:left;
     display:inline-block
 }
 
@@ -20,12 +22,40 @@
 .headerimage {
     max-height: 100%;
     max-width: 100%;
+    display: inline-block;
     
 }
 
+.addmemebutton {
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+.addmemejumbotron {
+    background-color: #ffffff !important;
+}
+
+.card {
+    float: left;
+    width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 0;
+}
+
+.card > img {
+    margin-bottom: .75rem;
+}
+
 #headerimageleft {
-    display:inline-block;
+    width: 50%;
+    display: inline-block;
     -webkit-transform:scale(-1,1);
+}
+
+#headerimageright {
+    display: inline-block;
+    padding-left: 50%;
 }
 
 #bad {
@@ -46,11 +76,17 @@
 }
 
 #badcontent {
-    width:120px
+    width:120px;
     margin-left: auto;
   margin-right: auto;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+form {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
 }
 

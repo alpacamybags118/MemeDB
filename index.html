@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <script>
+           var isIE = /*@cc_on!@*/false || !!document.documentMode;
+           if (isIE) {
+               window.location = "stopit.php"
+           }
+    </script>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="content/site.css">
+        <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.css">
+        <title>MemeDB</title>
+    </head>
+    <body>
+        <div class="header">
+            <h2>MEMEDBB please work</h2>
+            <div class="headercontainerleft">
+                <div id="headerimageleft">
+                    <img  class="headerimage" src="images/frog.gif" alt="frogmeme"/>
+                </div>
+            </div>
+            <div class="headercontainerright">
+                <div id="headerimageright">
+                    <img class="headerimage" src="images/frog.gif" alt="frogmeme"/>
+                </div>
+            </div>
+            <div class="jumbotron addmemejumbotron">
+                <p><a class="btn btn-lg btn-danger addmemebutton" href="#" role="button" onclick="document.location.href='/modules/addmeme.html'">ADD MEME</a></p>
+            </div>
+        </div>
+    <div class="album">
+        <div class="container">
+            <div class="row">
+                <div class="card">
+                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
+                    <p class="card-text">"An angry pepe"</p>
+                </div>
+                <div class="card">
+                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
+                    <p class="card-text">"An angry pepe"</p>
+                </div>
+                <div class="card">
+                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
+                    <p class="card-text">"An angry pepe"</p>
+                </div>
+                <div class="card">
+                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
+                    <p class="card-text">"An angry pepe"</p>
+                </div>
+                <!--div class = card, image, then p class=card-text -->
+            </div>
+        </div>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="vendor/twbs/bootstrap/assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="vendor/twbs/bootstrap/assets/js/vendor/popper.min.js"></script>
+        <script src="vendor/twbs/bootstrap/assets/js/vendor/holder.min.js"></script>
+        <script>
+            $(function () {
+                Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+            });
+        </script>
+        <script src="vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
+    </body>
+</html>
