@@ -35,27 +35,7 @@ and open the template in the editor.
             </div>
         </div>
     <div class="album">
-        <div class="container">
-            <div class="row">
-                <div class="card">
-                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
-                    <p class="card-text">"An angry pepe"</p>
-                </div>
-                <div class="card">
-                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
-                    <p class="card-text">"An angry pepe"</p>
-                </div>
-                <div class="card">
-                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
-                    <p class="card-text">"An angry pepe"</p>
-                </div>
-                <div class="card">
-                    <img src="images/angry_pepe.jpg" style="height: 280px; width: 100%; display: block;"/>
-                    <p class="card-text">"An angry pepe"</p>
-                </div>
-                <!--div class = card, image, then p class=card-text -->
-            </div>
-        </div>
+        <canvas id="myCanvas" width="1000" height="1000"></canvas>
     </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -69,4 +49,20 @@ and open the template in the editor.
         </script>
         <script src="vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
     </body>
+<script>
+    for (i = 0; i < 10; i++) {
+        var c = document.getElementById("myCanvas");
+        var context = c.getContext('2d');
+        var image = new Image();
+
+        image.src = "images/angry_pepe.jpg";
+        var width = Math.floor(Math.random() * c.width);
+        var height = Math.floor(Math.random() * c.height);
+
+        image.onload = function () {
+            var ratio = image.width / image.height;
+            context.drawImage(image, width, height, image.width * (ratio * 0.2), image.height * (ratio * 0.2));
+        };
+    }
+</script>
 </html>

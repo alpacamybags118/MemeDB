@@ -9,19 +9,29 @@ class ImgurHelper
 
     public static function UploadImage($image)
     {
-        if($image = null)
+        if($image == null)
         {
             return null;
         }
 
+        $image = ImgurHelper::GetImageEncoding($image);
+
         //make the http request
         $request = curl_init(self::IMGURAPIURI."/image");
+        curl_setopt(
+            $request,
+            CURLOPT_HTTPHEADER,
+            array(
+                "authorization: Client-ID id here",
+                'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+            )
+        );
         curl_setopt($request,CURLOPT_POST,true);
         curl_setopt(
             $request,
             CURLOPT_POSTFIELDS,
             array(
-                'image' => '@' . realpath($image)
+                'image' => $image
             )
         );
 
@@ -37,5 +47,13 @@ class ImgurHelper
         }
 
         return $response;
+    }
+
+    private static function GetImageEncoding($image)
+    {
+        $imagedata = file_get_contents(realpath($image));
+        $base64 = base64_encode($imagedata);
+
+        return $base64;
     }
 }
