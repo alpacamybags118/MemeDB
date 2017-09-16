@@ -1,6 +1,7 @@
 {
     "require": {
         "slim/slim": "3.0",
-        "twbs/bootstrap": "4.0.0-beta"
+        "twbs/bootstrap": "4.0.0-beta",
+        "guzzlehttp/guzzle": "~6.0"
     }
 }

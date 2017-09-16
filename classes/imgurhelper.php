@@ -1,5 +1,8 @@
 <?php
 require '../vendor/autoload.php';
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
+$keys = require('../configs/api_keys.php');
 
 class ImgurHelper
 {
@@ -13,32 +16,24 @@ class ImgurHelper
         {
             return null;
         }
+        //create the client
+        $client = new Client([
+            'base_uri' => 'https://api.imgur.com'
+        ]);
 
-        $image = ImgurHelper::GetImageEncoding($image);
-
-        //make the http request
-        $request = curl_init(self::IMGURAPIURI."/image");
-        curl_setopt(
-            $request,
-            CURLOPT_HTTPHEADER,
-            array(
-                "authorization: Client-ID id here",
-                'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
-            )
-        );
-        curl_setopt($request,CURLOPT_POST,true);
-        curl_setopt(
-            $request,
-            CURLOPT_POSTFIELDS,
-            array(
-                'image' => $image
-            )
-        );
 
         try
         {
-            curl_setopt($request,CURLOPT_RETURNTRANSFER,true);
-            $response = curl_exec($request);
+            $request = $client->request('POST','3/image',[
+                'headers' => [
+                    "authorization" => "Client-ID " . $keys['IMGUR_API_KEY'],
+                ],
+                "form_params" => [
+                    'image' => $image
+                ]
+            ]);
+
+            $response = $request->getBody()->getContents();
         }
         catch (HttpException $ex)
         {
@@ -46,14 +41,7 @@ class ImgurHelper
             return null;
         }
 
-        return $response;
+        return json_decode($response);
     }
 
-    private static function GetImageEncoding($image)
-    {
-        $imagedata = file_get_contents(realpath($image));
-        $base64 = base64_encode($imagedata);
-
-        return $base64;
-    }
 }
