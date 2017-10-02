@@ -20,4 +20,6 @@ $meme->setDateCreated(date('Y-m-d H:i:s'));
 $repo = new SQLMemeRepository();
 $repo->save($meme);
 
+header('Location:index.html');
+
 ?>

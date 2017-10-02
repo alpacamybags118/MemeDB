@@ -26,7 +26,7 @@ class ImgurHelper
         {
             $request = $client->request('POST','3/image',[
                 'headers' => [
-                    "authorization" => "Client-ID " . '$(imgurapi)',
+                    "authorization" => "Client-ID " . '',
                 ],
                 "form_params" => [
                     'image' => $image

@@ -40,7 +40,7 @@ class SQLMemeRepository implements MemeRepositoryInterface
 
     public function save(Meme $meme)
     {
-        $statement = $this->db->prepare('INSERT INTO "meme" (name,datecreated,imageurl) VALUES (:name,:datecreated,:imageurl)');
+        $statement = $this->db->prepare('INSERT INTO meme (name,datecreated,imageurl) VALUES (:name,:datecreated,:imageurl)');
         $statement->bindParam(':name',$meme->getName(),PDO::PARAM_STR);
         $statement->bindParam(':datecreated',$meme->getDateCreated(),PDO::PARAM_STR);
         $statement->bindParam(':imageurl',$meme->getImageUrl(),PDO::PARAM_STR);
