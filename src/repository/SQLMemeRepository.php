@@ -1,5 +1,5 @@
 <?php
-include('MemeRepositoryInterface.php');
+namespace "Alpacamybags/Memedb/repository";
 
 class SQLMemeRepository implements MemeRepositoryInterface
 {

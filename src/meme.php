@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+namespace "Alpacamybags/Memedb";
 
 class Meme
 {

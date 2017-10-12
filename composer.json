@@ -1,4 +1,7 @@
 {
+    "autoload": {
+        "psr-4": {"Alpacamybags\\Memedb\\": "src"}
+    }
     "require": {
         "slim/slim": "3.0",
         "twbs/bootstrap": "4.0.0-beta",

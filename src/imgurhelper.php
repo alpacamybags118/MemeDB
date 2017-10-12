@@ -1,8 +1,8 @@
 <?php
-require '../vendor/autoload.php';
+namespace "Alpacamybags/Memedb";
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-$keys = require('../configs/api_keys.php');
 
 class ImgurHelper
 {
