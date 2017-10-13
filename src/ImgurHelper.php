@@ -1,5 +1,5 @@
 <?php
-namespace "Alpacamybags/Memedb";
+namespace Alpacamybags\Memedb;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;

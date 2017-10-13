@@ -1,5 +1,7 @@
 <?php
-namespace "Alpacamybags/Memedb/repository";
+namespace Alpacamybags\Memedb\Repository;
+use PDO;
+use Alpacamybags\Memedb\Meme;
 
 class SQLMemeRepository implements MemeRepositoryInterface
 {
@@ -28,7 +30,7 @@ class SQLMemeRepository implements MemeRepositoryInterface
     {
         $statement = $this->db->prepare('SELECT * FROM MEME');
         $statement->execute();
-        $statement->setFetchMode(PDO::FETCH_CLASS,'Meme');
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
 
         return $statement->fetchAll();
     }

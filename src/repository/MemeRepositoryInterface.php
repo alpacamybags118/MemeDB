@@ -1,5 +1,7 @@
 <?php
-namespace "Alpacamybags/Memedb/repository";
+namespace Alpacamybags\Memedb\Repository;
+use Alpacamybags\Memedb\Meme;
+
 interface MemeRepositoryInterface
 {
     public function getAll();

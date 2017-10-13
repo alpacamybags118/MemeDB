@@ -1,10 +1,12 @@
 {
     "autoload": {
-        "psr-4": {"Alpacamybags\\Memedb\\": "src"}
-    }
+        "psr-4": {"Alpacamybags\\Memedb\\": "src",
+        "Alpacamybags\\Memedb\\Repository\\": "src/repository"}
+    },
     "require": {
         "slim/slim": "3.0",
         "twbs/bootstrap": "4.0.0-beta",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "twig/twig": "^2.0"
     }
 }

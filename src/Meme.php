@@ -1,5 +1,5 @@
 <?php
-namespace "Alpacamybags/Memedb";
+namespace Alpacamybags\Memedb;
 
 class Meme
 {

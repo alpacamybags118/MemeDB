@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="content/site.css">
+        <link rel="stylesheet" type="text/css" href="../content/site.css">
         <title>REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</title>
     </head>
     <body id="bad">
@@ -19,7 +19,7 @@ and open the template in the editor.
         </div>
         
         <audio autoplay>
-            <source src='media/reeee.mp3' type='audio/mpeg'>
+            <source src='../resources/reeee.mp3' type='audio/mpeg'>
         </audio>
     </body>
 </html>
