@@ -11,9 +11,28 @@ use Alpacamybags\Memedb\Repository\SQLMemeRepository;
 
 $app = new \Slim\App();
 
+$container = $app->getContainer();
+
+$container['view'] = function ($c) {
+    $view = new \Slim\Views\Twig('resources/templates', [
+        'cache' => 'resources'
+    ]);
+
+    // Instantiate and add Slim specific extension
+    $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
+    $view->addExtension(new \Slim\Views\TwigExtension($c['router'], $basePath));
+
+    return $view;
+};
+
+
+
 $app->get('/', function (Request $request, Response $response) {
-    $response = $response->getBody()->write(file_get_contents("public/index.html"));
-    return $response;
+    $repo = new SQLMemeRepository();
+    $memes = $repo->getAll();
+    return $this->view->render($response,'index.html',[
+        'memes' => $memes
+    ]);
 });
 
 $app->get('/addmeme', function (Request $request, Response $response) {
@@ -41,13 +60,12 @@ $app->post('/upload', function (Request $request, Response $response) {
     }
 });
 
-/*$app->get('/memes',function (Request $request, Response $response) {
-    $repo = SQLMemeRepository();
+$app->get('/memes',function (Request $request, Response $response) {
+    $repo = new SQLMemeRepository();
     $test = $repo->getAll();
-    $testtwo = array("test","test2");
-    $response = $response->withBody(implode(",",$testtwo));
+    $response = $response->withJson(json_encode($test));
 
     return $response;
-});*/
+});
 
 $app->run();

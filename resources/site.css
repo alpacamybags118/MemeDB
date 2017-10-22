@@ -59,7 +59,7 @@
 }
 
 #bad {
-    background-image: url("../resources/angry_pepe.jpg");
+    background-image: url("angry_pepe.jpg");
     background-size: 100px 80px;
     background-repeat: repeat;
     font-family: "Comic Sans";
