@@ -10,6 +10,19 @@ class Meme
 
     public function __construct(){}
 
+    public static function Fill($meme)
+    {
+        $instance = new self();
+        $instance->setID($meme["id"]);
+        $instance->setName($meme["name"]);
+        $instance->setDateCreated($meme["datecreated"]);
+        $instance->setImageUrl($meme["imageurl"]);
+
+
+        return $instance;
+
+    }
+
     public function getID()
     {
         return $this->id;

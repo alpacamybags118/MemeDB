@@ -1,11 +1,14 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+require 'vendor/predis/autoload.php';
+
+Predis\Autoloader::register();
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use Alpacamybags\Memedb\Meme;
 use Alpacamybags\Memedb\AddMeme;
 use Alpacamybags\Memedb\Repository\SQLMemeRepository;
+use Alpacamybags\Memedb\Repository\RedisMemeRepository;
 
 
 
@@ -15,7 +18,7 @@ $container = $app->getContainer();
 
 $container['view'] = function ($c) {
     $view = new \Slim\Views\Twig('resources/templates', [
-        'cache' => 'resources'
+        'cache' => false
     ]);
 
     // Instantiate and add Slim specific extension
@@ -33,6 +36,26 @@ $app->get('/', function (Request $request, Response $response) {
     return $this->view->render($response,'index.html',[
         'memes' => $memes
     ]);
+});
+
+$app->get('/redistest', function (Request $request, Response $response) {
+    $repo = new RedisMemeRepository();
+    $memes = $repo->getAll();
+    try
+    {
+        return $this->view->render($response,'index.html',[
+            'memes' => $memes
+        ]);
+    }
+    catch(Exception $e)
+    {
+        $response = $response->getBody()->write($e->getMessage());
+
+        return $response;
+    }
+
+
+
 });
 
 $app->get('/addmeme', function (Request $request, Response $response) {
@@ -53,7 +76,6 @@ $app->post('/upload', function (Request $request, Response $response) {
     }
     catch(Exception $e)
     {
-        $response = $response->withStatus('500',$e->getMessage());
         $response = $response->getBody()->write($e->getMessage());
 
         return $response;

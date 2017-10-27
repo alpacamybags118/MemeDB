@@ -50,4 +50,12 @@ class SQLMemeRepository implements MemeRepositoryInterface
         $statement->execute();
 
     }
+
+    public function saveAll($memes)
+    {
+        foreach($memes as $meme)
+        {
+            $this->save($meme);
+        }
+    }
 }

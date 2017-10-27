@@ -35,7 +35,7 @@ and open the template in the editor.
             </div>
         </div>
     <div class="album">
-        <canvas id="myCanvas" width="1000" height="1000"></canvas>
+        <canvas id="myCanvas" width="1920" height="1080"></canvas>
     </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -50,20 +50,23 @@ and open the template in the editor.
         <script src="vendor/twbs/bootstrap/dist/js/bootstrap.js"></script>
     </body>
 <script>
-    var images = {{ 'memes' };
-    alert(images[0].name)
-    for (i = 0; i < 10; i++) {
+    var images = {{ memes|json_encode|raw }};
+    for (i = 0; i < images.length; i++) {
         var c = document.getElementById("myCanvas");
         var context = c.getContext('2d');
         var image = new Image();
 
-        image.src = "resources/angry_pepe.jpg";
-        var width = Math.floor(Math.random() * c.width);
-        var height = Math.floor(Math.random() * c.height);
+        image.src = images[i].imageurl;
+        var tempwidth = image.width;
+        var tempheight = image.height;
+        image.width = tempwidth * .2;
+        image.height = tempheight * .2;
+        var width = Math.floor(.1 * c.height);
+        var height = Math.floor(.1 * c.height);
 
         image.onload = function () {
             var ratio = image.width / image.height;
-            context.drawImage(image, width, height, image.width * (ratio * Math.random()), image.height * (ratio * Math.random()));
+            context.drawImage(this, width, height, image.width + (1920 * Math.random()), image.height + (1080 * Math.random()));
         };
     }
 </script>
